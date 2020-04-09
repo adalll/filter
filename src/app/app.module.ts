@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FilterComponent } from './filter/filter-component/filter.component';
 import { ResultComponent } from './filter/result-component/result.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilterComponent,
-    ResultComponent
+    ResultComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 <br>
 <br>
-<ng-container *ngFor="let item of items">
+<ng-container *ngFor="let item of itemsDataService.getItems() | filter:(this.route.queryParams | async)">
   <span>{{item.id}} </span><span>{{item.name}} </span><span>{{item.type}}</span><br>
 </ng-container>

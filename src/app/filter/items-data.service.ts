@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Item } from './item.model';
+
 import { items } from './items.data';
 
 @Injectable({
@@ -6,7 +8,7 @@ import { items } from './items.data';
 })
 export class ItemsDataService {
 
-  public static getItems() {
+  public getItems(): Item[] {
     return items;
   }
 }
