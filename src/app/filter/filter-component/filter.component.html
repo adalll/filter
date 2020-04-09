@@ -1,0 +1,17 @@
+<input
+  type="text"
+  id="name"
+  [(ngModel)]="name"
+>
+<input
+  type="text"
+  id="type"
+  [(ngModel)]="type"
+>
+<button
+  [routerLink]="['/result']"
+  [queryParams]="{name: this.name, type: this.type}"
+>
+  Filter
+</button>
+<router-outlet></router-outlet>
