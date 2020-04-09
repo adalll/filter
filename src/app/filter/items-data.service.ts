@@ -6,7 +6,7 @@ import { items } from './items.data';
 })
 export class ItemsDataService {
 
-  public static getItems() {
+  public getItems() {
     return items;
   }
 }
