@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent {
+
   private  name = '';
   private  type = '';
+
 }
