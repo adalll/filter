@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ItemsDataService } from '../../service/items-data.service';
+import { DataService } from '../../services/data.service';
 import { Item } from '../../models/item.model';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
 })
 export class ResultComponent implements OnInit {
 
-  constructor( private route: ActivatedRoute, private itemsDataService: ItemsDataService) { }
+  constructor( private route: ActivatedRoute, private itemsDataService: DataService) { }
 
   public filteredItems$: BehaviorSubject<Item[]> = new BehaviorSubject<Item[]>(this.itemsDataService.items$.value);
 

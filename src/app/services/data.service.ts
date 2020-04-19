@@ -7,7 +7,7 @@ import { items } from '../data/items.data';
 @Injectable({
   providedIn: 'root'
 })
-export class ItemsDataService {
+export class DataService {
 
   items$ = new BehaviorSubject<Item[]>(items);
 
