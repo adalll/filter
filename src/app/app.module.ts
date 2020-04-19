@@ -5,8 +5,8 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { FilterComponent } from './filter/filter-component/filter.component';
-import { ResultComponent } from './filter/result-component/result.component';
+import { FilterComponent } from './views/filter-component/filter.component';
+import { ResultComponent } from './views/result-component/result.component';
 import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({

@@ -1,0 +1,7 @@
+<br>
+<br>
+<h2>Фильтрованые элементы: </h2>
+
+<ng-container *ngFor="let item of (this.filteredItems$ | async)">
+  <span>{{item.id}} </span><span>{{item.name}} </span><span>{{item.type}}</span><br>
+</ng-container>

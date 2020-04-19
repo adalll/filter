@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Item } from '../filter/item.model';
-import {Params} from '@angular/router';
+import { Item } from '../models/item.model';
+import { Params } from '@angular/router';
 
 @Pipe({
   name: 'filter'
