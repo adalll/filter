@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../../services/data.service';
 import { Item } from '../../models/item.model';
-import { BehaviorSubject } from 'rxjs';
+import {BehaviorSubject, Subscription} from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -10,15 +10,16 @@ import { map } from 'rxjs/operators';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css']
 })
-export class ResultComponent implements OnInit {
+export class ResultComponent implements OnInit, OnDestroy {
 
   constructor( private route: ActivatedRoute, private itemsDataService: DataService) { }
 
   public filteredItems$: BehaviorSubject<Item[]> = new BehaviorSubject<Item[]>(this.itemsDataService.items$.value);
+  private filterSub: Subscription;
 
   ngOnInit(): void {
 
-    this.route.queryParams
+    this.filterSub = this.route.queryParams
       .subscribe((params) => {
         this.itemsDataService.items$
           .pipe(
@@ -26,7 +27,14 @@ export class ResultComponent implements OnInit {
               if (!params.name.trim() && !params.type.trim()) {
                 return items;
               }
-              return items.filter((item) => item.name.includes(params.name) && item.type.includes(params.type) )
+              return items.filter((item) => (
+                item.name.toUpperCase().includes(
+                  params.name.toUpperCase()
+                )
+                && item.type.toUpperCase().includes(
+                  params.type.toUpperCase()
+                )
+              ))
             })
           )
           .subscribe((items) => {
@@ -34,4 +42,9 @@ export class ResultComponent implements OnInit {
           });
       });
   }
+
+  ngOnDestroy(): void {
+    this.filterSub.unsubscribe();
+  }
+
 }
